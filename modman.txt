@@ -1,0 +1,7 @@
+#Easygento_AdvancedProductGrid
+app/etc/modules/Easygento_AdvancedProductGrid.xml app/etc/modules/Easygento_AdvancedProductGrid.xml
+app/code/community/Easygento/AdvancedProductGrid app/code/community/Easygento/AdvancedProductGrid
+app/design/adminhtml/default/default/layout/easygento/advancedproductgrid.xml app/design/adminhtml/default/default/layout/easygento/advancedproductgrid.xml
+app/design/adminhtml/default/default/template/easygento/advancedproductgrid app/design/adminhtml/default/default/template/easygento/advancedproductgrid
+app/locale/fr_FR/Easygento_AdvancedProductGrid.csv app/locale/fr_FR/Easygento_AdvancedProductGrid.csv
+app/locale/en_US/Easygento_AdvancedProductGrid.csv app/locale/en_US/Easygento_AdvancedProductGrid.csv

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * This file is part of Easygento_AdvancedProductGrid for Magento.
+ *
+ * @license http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author Phuong LE <sony@menincode.com> <@>
+ * @category Easygento
+ * @package Easygento_AdvancedProductGrid
+ * @copyright Copyright (c) 2017 Easygento (Menincode)
+ */
+-->
+<config>
+    <modules>
+        <Easygento_AdvancedProductGrid>
+            <version>1.0.0</version>
+        </Easygento_AdvancedProductGrid>
+    </modules>
+    <global>
+        <helpers>
+            <easygento_advancedproductgrid>
+                <class>Easygento_AdvancedProductGrid_Helper</class>
+            </easygento_advancedproductgrid>
+        </helpers>
+        <models>
+            <easygento_advancedproductgrid>
+                <class>Easygento_AdvancedProductGrid_Model</class>
+                <resourceModel>easygento_advancedproductgrid_resource</resourceModel>
+            </easygento_advancedproductgrid>
+            <easygento_advancedproductgrid_resource>
+                <class>Easygento_AdvancedProductGrid_Model_Resource</class>
+                <entities>
+                    <product_attribute>
+                        <table>easygento_advancedproductgrid_product_attribute</table>
+                    </product_attribute>
+                </entities>
+            </easygento_advancedproductgrid_resource>
+        </models>
+        <blocks>
+            <easygento_advancedproductgrid>
+                <class>Easygento_AdvancedProductGrid_Block</class>
+            </easygento_advancedproductgrid>
+        </blocks>
+        <resources>
+            <easygento_advancedproductgrid_setup>
+                <setup>
+                    <module>Easygento_AdvancedProductGrid</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </easygento_advancedproductgrid_setup>
+        </resources>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <easygento_advancedproductgrid after="Mage_Adminhtml">Easygento_AdvancedProductGrid_Adminhtml</easygento_advancedproductgrid>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <easygento_advancedproductgrid module="Easygento_AdvancedProductGrid">
+                    <file>easygento/advancedproductgrid.xml</file>
+                </easygento_advancedproductgrid>
+            </updates>
+        </layout>
+        <events>
+            <core_block_abstract_prepare_layout_before>
+                <observers>
+                    <easygento_advancedproductgrid>
+                        <class>easygento_advancedproductgrid/observer</class>
+                        <method>addCustomColumn</method>
+                    </easygento_advancedproductgrid>
+                </observers>
+            </core_block_abstract_prepare_layout_before>
+            <catalog_product_collection_load_before>
+                <observers>
+                    <soon_extendedgrid>
+                        <class>easygento_advancedproductgrid/observer</class>
+                        <method>catalogProductCollectionLoadBefore</method>
+                    </soon_extendedgrid>
+                </observers>
+            </catalog_product_collection_load_before>
+        </events>
+        <translate>
+            <modules>
+                <Easygento_AdvancedProductGrid>
+                    <files>
+                        <default>Easygento_AdvancedProductGrid.csv</default>
+                    </files>
+                </Easygento_AdvancedProductGrid>
+            </modules>
+        </translate>
+    </adminhtml>
+</config>
