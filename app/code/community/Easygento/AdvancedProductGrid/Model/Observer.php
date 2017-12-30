@@ -65,9 +65,15 @@ class Easygento_AdvancedProductGrid_Model_Observer
                     $data['type'] = 'options';
                     $data['options'] = $this->_getAttributeOptions($model->getAttributeCode());
                 }
+
                 if ($rendererType == 'media_image') {
                     $data['renderer'] = 'easygento_advancedproductgrid/adminhtml_widget_grid_renderer_media';
                 }
+
+                if ($rendererType == 'price') {
+                    $data['currency_code'] = $this->_getStore()->getBaseCurrency()->getCode();
+                }
+
                 /** @TODO make the position of the column selectable */
                 $block->addColumnAfter($model->getAttributeCode(), $data, 'name');
             }
@@ -111,6 +117,14 @@ class Easygento_AdvancedProductGrid_Model_Observer
         return $options;
     }
 
+    /**
+     * @return Mage_Core_Model_Store
+     */
+    protected function _getStore()
+    {
+        $storeId = (int) Mage::app()->getRequest()->getParam('store', 0);
+        return Mage::app()->getStore($storeId);
+    }
 // Easygento Tag NEW_METHOD
 
 }

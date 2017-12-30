@@ -13,7 +13,7 @@
 <config>
     <modules>
         <Easygento_AdvancedProductGrid>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </Easygento_AdvancedProductGrid>
     </modules>
     <global>
